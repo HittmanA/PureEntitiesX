@@ -1,11 +1,12 @@
 <?php
-
 namespace revivalpmmp\pureentities\entity\monster\jumping;
 
-use revivalpmmp\pureentities\entity\monster\JumpingMonster;
+use pocketmine\item\Item;
 use pocketmine\entity\Entity;
 use pocketmine\event\entity\EntityDamageByEntityEvent;
 use pocketmine\event\entity\EntityDamageEvent;
+
+use revivalpmmp\pureentities\entity\monster\JumpingMonster;
 
 class MagmaCube extends JumpingMonster{
     const NETWORK_ID = 42;

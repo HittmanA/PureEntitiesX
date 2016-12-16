@@ -1,5 +1,4 @@
 <?php
-
 namespace revivalpmmp\pureentities\entity\monster\walking;
 
 use revivalpmmp\pureentities\entity\monster\WalkingMonster;
@@ -38,9 +37,8 @@ class Enderman extends WalkingMonster{
 
     public function getDrops(){
         if($this->lastDamageCause instanceof EntityDamageByEntityEvent){
-            return [Item::get(Item::ENDER_PEARL, 0, 1)];
+            return [Item::get(361, 0, rand(0,1))];
         }
         return [];
     }
-
 }

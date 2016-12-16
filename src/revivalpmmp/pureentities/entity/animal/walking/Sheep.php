@@ -1,13 +1,12 @@
 <?php
-
 namespace revivalpmmp\pureentities\entity\animal\walking;
 
-use revivalpmmp\pureentities\entity\animal\WalkingAnimal;
 use pocketmine\entity\Colorable;
 use pocketmine\item\Item;
 use pocketmine\Player;
-use pocketmine\event\entity\EntityDamageByEntityEvent;
 use pocketmine\entity\Creature;
+
+use revivalpmmp\pureentities\entity\animal\WalkingAnimal;
 
 class Sheep extends WalkingAnimal implements Colorable{
     const NETWORK_ID = 13;
@@ -33,10 +32,8 @@ class Sheep extends WalkingAnimal implements Colorable{
     }
 
     public function getDrops(){
-        if($this->lastDamageCause instanceof EntityDamageByEntityEvent){
-            return [Item::get(Item::WHITE_WOOL, 1)];
-        }
-        return [];
+	    return [
+		    Item::get(Item::WOOL, 1, 1)
+	    ];
     }
-
 }

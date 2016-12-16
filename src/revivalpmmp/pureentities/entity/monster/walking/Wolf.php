@@ -1,13 +1,13 @@
 <?php
-
 namespace revivalpmmp\pureentities\entity\monster\walking;
 
-use revivalpmmp\pureentities\entity\monster\WalkingMonster;
 use pocketmine\entity\Entity;
 use pocketmine\nbt\tag\IntTag;
 use pocketmine\event\entity\EntityDamageEvent;
 use pocketmine\event\entity\EntityDamageByEntityEvent;
 use pocketmine\entity\Creature;
+
+use revivalpmmp\pureentities\entity\monster\WalkingMonster;
 
 class Wolf extends WalkingMonster{
     const NETWORK_ID = 14;

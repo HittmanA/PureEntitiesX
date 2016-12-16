@@ -1,5 +1,4 @@
 <?php
-
 namespace revivalpmmp\pureentities\entity;
 
 use revivalpmmp\pureentities\entity\animal\Animal;

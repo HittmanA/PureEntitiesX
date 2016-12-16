@@ -86,8 +86,8 @@ class PureEntities extends PluginBase implements Listener{
             Horse::class,
             Donkey::class,
             Mule::class,
-            //ElderGuardian::class,
-            //Guardian::class,
+            ElderGuardian::class,
+            Guardian::class,
             //Squid::class,
             Villager::class,
             Blaze::class,
@@ -153,11 +153,11 @@ class PureEntities extends PluginBase implements Listener{
     }
 
     /**
-     * @param type $type
+     * @param int|string $type
      * @param Position $source
-     * @param type $args
+     * @param $args
      * 
-     * @return type
+     * @return Entity
      */
     public static function create($type, Position $source, ...$args){
         $chunk = $source->getLevel()->getChunk($source->x >> 4, $source->z >> 4, true);

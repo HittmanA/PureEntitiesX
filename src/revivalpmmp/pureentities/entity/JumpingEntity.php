@@ -1,11 +1,10 @@
 <?php
-
 namespace revivalpmmp\pureentities\entity;
 
 abstract class JumpingEntity extends BaseEntity{
 
     /*
-     * For slimes and Magma Cubes ONLY
+     * For slimes, Magma Cubes, and Vampire Bunnies ONLY
      * Not to be confused for normal entity jumping
      */
     

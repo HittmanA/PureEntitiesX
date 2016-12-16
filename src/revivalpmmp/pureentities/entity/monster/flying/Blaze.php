@@ -1,12 +1,6 @@
 <?php
-
 namespace revivalpmmp\pureentities\entity\monster\flying;
 
-use revivalpmmp\pureentities\entity\animal\Animal;
-use revivalpmmp\pureentities\entity\BaseEntity;
-use revivalpmmp\pureentities\entity\monster\FlyingMonster;
-use revivalpmmp\pureentities\entity\projectile\FireBall;
-use revivalpmmp\pureentities\PureEntities;
 use pocketmine\block\Liquid;
 use pocketmine\block\Slab;
 use pocketmine\block\Stair;
@@ -22,6 +16,12 @@ use pocketmine\math\Math;
 use pocketmine\math\Vector2;
 use pocketmine\math\Vector3;
 use pocketmine\Player;
+
+use revivalpmmp\pureentities\entity\animal\Animal;
+use revivalpmmp\pureentities\entity\BaseEntity;
+use revivalpmmp\pureentities\entity\monster\FlyingMonster;
+use revivalpmmp\pureentities\entity\projectile\FireBall;
+use revivalpmmp\pureentities\PureEntities;
 
 class Blaze extends FlyingMonster implements ProjectileSource{
     const NETWORK_ID = 43;

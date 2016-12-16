@@ -1,12 +1,14 @@
 <?php
-
 namespace revivalpmmp\pureentities\entity\monster\jumping;
 
-use revivalpmmp\pureentities\entity\monster\JumpingMonster;
+use pocketmine\event\entity\EntityDamageEvent;
+use pocketmine\Player;
 use pocketmine\entity\Entity;
 use pocketmine\item\Item;
 use pocketmine\event\entity\EntityDamageByEntityEvent;
 use pocketmine\entity\Creature;
+
+use revivalpmmp\pureentities\entity\monster\JumpingMonster;
 
 class Slime extends JumpingMonster{
     const NETWORK_ID = 37;

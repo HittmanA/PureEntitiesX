@@ -1,5 +1,4 @@
 <?php
-
 namespace revivalpmmp\pureentities\entity\monster\walking;
 
 use revivalpmmp\pureentities\entity\monster\WalkingMonster;
@@ -24,7 +23,7 @@ class Zombie extends WalkingMonster implements Ageable{
     public function initEntity(){
         parent::initEntity();
 
-        if($this->getDataFlag(self::DATA_FLAG_BABY , "" ) === null){
+        if($this->getDataFlag(self::DATA_FLAG_BABY , 0) === null){
             $this->setDataFlag(self::DATA_FLAG_BABY, self::DATA_TYPE_BYTE, 0);
         }
         $this->setDamage([0, 3, 4, 6]);
@@ -35,7 +34,7 @@ class Zombie extends WalkingMonster implements Ageable{
     }
 
     public function isBaby(){
-        return $this->getDataFlag(self::DATA_FLAG_BABY);
+        return $this->getDataFlag(parent::DATA_FLAG_BABY,0);
     }
 
     public function setHealth($amount){

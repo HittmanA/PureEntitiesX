@@ -1,5 +1,4 @@
 <?php
-
 namespace revivalpmmp\pureentities\entity\monster\walking;
 
 use revivalpmmp\pureentities\entity\monster\WalkingMonster;

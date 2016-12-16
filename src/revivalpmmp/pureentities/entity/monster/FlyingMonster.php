@@ -1,5 +1,4 @@
 <?php
-
 namespace revivalpmmp\pureentities\entity\monster;
 
 use revivalpmmp\pureentities\entity\FlyingEntity;

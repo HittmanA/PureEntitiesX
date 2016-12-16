@@ -1,9 +1,9 @@
 <?php
-
 namespace revivalpmmp\pureentities\entity\animal\walking;
 
-use revivalpmmp\pureentities\entity\animal\FlyingAnimal;
 use pocketmine\entity\Creature;
+
+use revivalpmmp\pureentities\entity\animal\FlyingAnimal;
 
 class Bat extends FlyingAnimal{
     //TODO: This isn't implemented yet

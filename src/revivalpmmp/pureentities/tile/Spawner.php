@@ -1,9 +1,7 @@
 <?php
-
 namespace revivalpmmp\pureentities\tile;
 
-use revivalpmmp\pureentities\PureEntities;
-use revivalpmmp\randomjoin\Player;
+use pocketmine\Player;
 use pocketmine\level\format\FullChunk;
 use pocketmine\level\Position;
 use pocketmine\nbt\tag\CompoundTag;
@@ -11,6 +9,8 @@ use pocketmine\nbt\tag\IntTag;
 use pocketmine\nbt\tag\ShortTag;
 use pocketmine\nbt\tag\StringTag;
 use pocketmine\tile\Spawnable;
+
+use revivalpmmp\pureentities\PureEntities;
 
 class Spawner extends Spawnable{
 

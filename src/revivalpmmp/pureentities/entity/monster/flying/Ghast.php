@@ -1,7 +1,8 @@
 <?php
-
 namespace revivalpmmp\pureentities\entity\monster\flying;
 
+use pocketmine\event\entity\EntityDamageByEntityEvent;
+use pocketmine\item\Item;
 use revivalpmmp\pureentities\entity\monster\FlyingMonster;
 use revivalpmmp\pureentities\entity\projectile\FireBall;
 use revivalpmmp\pureentities\PureEntities;
@@ -79,9 +80,11 @@ class Ghast extends FlyingMonster implements ProjectileSource{
 
     public function getDrops(){
         if($this->lastDamageCause instanceof EntityDamageByEntityEvent){
-            return [Item::get(Item::GUNPOWDER, 0, mt_rand(0, 2))];
+            return [
+            	Item::get(Item::GUNPOWDER, 0, mt_rand(0, 2)),
+	            Item::get(Item::GHAST_TEAR, 0, mt_rand(0,1))
+            ];
         }
         return [];
     }
-
 }

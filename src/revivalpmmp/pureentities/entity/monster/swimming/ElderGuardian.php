@@ -23,6 +23,10 @@ class ElderGuardian extends SwimmingMonster implements Monster {
 	public function initEntity(){
 		parent::initEntity();
 
+		if($this->getDataFlag(self::DATA_FLAG_ELDER , 0) === null){
+			$this->setDataFlag(self::DATA_FLAG_ELDER, self::DATA_TYPE_BYTE, 1);
+		}
+
 		$this->setMaxDamage(5,1);
 		$this->setMaxDamage(5,2);
 		$this->setMaxDamage(12,3);
@@ -30,7 +34,7 @@ class ElderGuardian extends SwimmingMonster implements Monster {
 	}
 
 	public function getName(){
-		return "Guardian";
+		return "ElderGuardian";
 	}
 
 	public function attackEntity(Entity $player){

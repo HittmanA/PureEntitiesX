@@ -35,7 +35,7 @@ class Wither extends FlyingMonster implements ProjectileSource{
 	}
 
 	public function getName(){
-		return "Ghast";
+		return "Wither";
 	}
 
 	// TODO Boss health bar

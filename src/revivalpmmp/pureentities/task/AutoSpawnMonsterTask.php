@@ -18,21 +18,20 @@ class AutoSpawnMonsterTask extends PluginTask {
     }
     
     public function onRun($currentTick){
-        
         $entities = [];
         $valid = false;
         foreach($this->plugin->getServer()->getLevels() as $level) {
             foreach($level->getPlayers() as $player){
                 foreach($level->getEntities() as $entity) {
-                    if($player->distance($entity) <= 25) {
+                    if($player->distance($entity) <= $this->getConfig()->getNested("check.radius")) {
                         $valid = true;
                         $entities[] = $entity;
                     }
                 }
         
-                if($valid && count($entities) <= 20 && $this->getConfig()->get("spawnmonsters") == true) {
-                    $x = $player->x + mt_rand(-20, 20);
-                    $z = $player->z + mt_rand(-20, 20);
+                if($valid && count($entities) <= $this->getConfig()->getNested("check.maxmonsters") && $this->getConfig()->getNested("spawn.monsters") === true) {
+                    $x = $player->x + mt_rand(-$this->getConfig()->getNested("spawn.maxradius"), $this->getConfig()->getNested("spawn.maxradius"));
+                    $z = $player->z + mt_rand(-$this->getConfig()->getNested("spawn.maxradius"), $this->getConfig()->getNested("spawn.maxradius"));
                     $pos = new Position(
                         $x,
                         ($y = $level->getHighestBlockAt($x, $z) + 1),
@@ -201,7 +200,7 @@ class AutoSpawnMonsterTask extends PluginTask {
                 $time = $level->getTime() % Level::TIME_FULL;
                 
                 if(
-                    !$player->distance($pos) <= 8 &&
+                    !($player->distance($pos) <= $this->getConfig()->getNested("spawn.minradius")) &&
                     $time >= 10900 && $time <= 17800
                 ) {
                     $this->plugin->scheduleCreatureSpawn($pos, $type, $level, "Monster");

@@ -12,7 +12,7 @@ use pocketmine\math\Vector3;
 
 class AutoSpawnAnimalTask extends PluginTask {
 
-	private $plugin;
+    private $plugin;
 
     public function __construct(PureEntities $plugin) {
         parent::__construct($plugin);
@@ -25,15 +25,15 @@ class AutoSpawnAnimalTask extends PluginTask {
         foreach($this->plugin->getServer()->getLevels() as $level) {
             foreach($level->getPlayers() as $player){
                 foreach($level->getEntities() as $entity) {
-                    if($player->distance($entity) <= 25) {
+                    if($player->distance($entity) <= $this->getConfig()->getNested("check.radius")) {
                         $valid = true;
                         $entities[] = $entity;
                     }
                 }
         
-                if($valid && count($entities) <= 10 && $this->getConfig()->get("spawnanimals") == true) {
-                    $x = $player->x + mt_rand(-20, 20);
-                    $z = $player->z + mt_rand(-20, 20);
+                if($valid && count($entities) <= $this->getConfig()->getNested("check.maxanimals") && $this->getConfig()->getNested("spawn.animals") === true) {
+                    $x = $player->x + mt_rand(-$this->getConfig()->getNested("spawn.maxradius"), $this->getConfig()->getNested("spawn.maxradius"));
+                    $z = $player->z + mt_rand(-$this->getConfig()->getNested("spawn.maxradius"), $this->getConfig()->getNested("spawn.maxradius"));
                     $pos = new Position(
                         $x,
                         ($y = $level->getHighestBlockAt($x, $z) + 1),
@@ -145,7 +145,7 @@ class AutoSpawnAnimalTask extends PluginTask {
                 $time = $level->getTime() % Level::TIME_FULL;
                 
                 if(
-                    !$player->distance($pos) <= 8 &&
+                    !($player->distance($pos) <= $this->getConfig()->getNested("spawn.minradius")) &&
                     ($time <= Level::TIME_SUNSET || $time >= Level::TIME_SUNRISE) &&
                     ($block instanceof Grass || $backupblock instanceof Grass)
                 ) {

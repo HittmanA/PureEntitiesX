@@ -1,6 +1,20 @@
-# Default Config File for PureEntitiesX
-spawnmonsters: true
-spawnanimals: true
+---
+# Default Configuration File for PureEntitiesX
+
+# Spawning configuration
+spawn:
+    monsters: true
+    animals: true
+    maxradius: 20
+    minradius: 10
+    
+# Checking configuration, changes spawn behaviour of monsters
+check:
+    radius: 50
+    maxmonsters: 25
+    maxanimals: 10
+    
 # Disabling auto despawning can have a HUGE effect on server performance, and overrun your server with mobs.
 auto-despawn: true 
+...
 

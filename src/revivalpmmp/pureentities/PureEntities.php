@@ -20,6 +20,7 @@
 namespace revivalpmmp\pureentities;
 
 use revivalpmmp\pureentities\entity\animal\swimming\Squid;
+use revivalpmmp\pureentities\entity\monster\flying\Wither;
 use revivalpmmp\pureentities\entity\monster\swimming\Guardian;
 use revivalpmmp\pureentities\entity\monster\swimming\ElderGuardian;
 use revivalpmmp\pureentities\entity\monster\jumping\MagmaCube;
@@ -88,7 +89,7 @@ class PureEntities extends PluginBase implements Listener{
             Mule::class,
             ElderGuardian::class,
             Guardian::class,
-            //Squid::class,
+            Squid::class,
             Villager::class,
             Blaze::class,
             CaveSpider::class,
@@ -113,7 +114,8 @@ class PureEntities extends PluginBase implements Listener{
             Wolf::class,
             Zombie::class,
             ZombieVillager::class,
-            FireBall::class
+            FireBall::class,
+	        Wither::class
         ];
         foreach($classes as $name){
             Entity::registerEntity($name);
@@ -122,6 +124,7 @@ class PureEntities extends PluginBase implements Listener{
                 || $name == FireBall::class
                 || $name == SnowGolem::class
                 || $name == ZombieVillager::class
+	            || $name == Wither::class
             ){
                 continue;
             }
@@ -132,9 +135,9 @@ class PureEntities extends PluginBase implements Listener{
         }
 
         Tile::registerTile(Spawner::class);
-        
+
         $this->getServer()->getLogger()->info(TextFormat::GOLD . "[PureEntitiesX] You're Running PureEntitiesX 1.1");
-        
+
         $this->getServer()->getLogger()->info(TextFormat::GOLD . "[PureEntitiesX] The Original Code for this Plugin was Written by milk0417. It is now being maintained by RevivalPMMP for PMMP 'Unleashed'.");
     }
 
@@ -211,7 +214,7 @@ class PureEntities extends PluginBase implements Listener{
                     new IntTag("y", $block->y),
                     new IntTag("z", $block->z),
                 ]);
-                new Spawner($block->getLevel()->getChunk((int) $block->x >> 4, (int) $block->z >> 4), $nbt);
+                new Spawner($block->getLevel()->getChunk($block->getX() >> 4, $block->getZ() >> 4), $nbt);
             }
         }
     }
